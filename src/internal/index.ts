@@ -118,7 +118,7 @@ export class RTMAPI {
 
       this.socket = new this.webSocketClass(wsURL);
       this.socket.onopen = () => {
-        this.heartbeatInterval = setInterval(() => this.send("ping", undefined), 10000);
+        this.heartbeatInterval = setInterval(() => this.send("ping", undefined).catch(reject), 10000);
         resolve();
       };
 
